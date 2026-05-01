@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24 Seven Themes 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --green: #3B6D11;
+    --green-light: #EAF3DE;
+    --green-mid: #C0DD97;
+    --amber: #854F0B;
+    --amber-light: #FAEEDA;
+    --amber-mid: #EF9F27;
+    --border: #e2e0d8;
+    --text: #1a1a18;
+    --text-muted: #888780;
+    --text-faint: #b4b2a9;
+    --bg: #ffffff;
+    --bg-secondary: #f7f6f2;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--bg-secondary);
+    padding: 40px 32px;
+    min-height: 100vh;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .header-left h1 {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .header-left p { font-size: 12px; color: var(--text-muted); }
+  .header-right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    transition: background .15s, border-color .15s;
+  }
+  .btn:hover { background: var(--bg-secondary); border-color: #c8c6be; }
+  .btn.primary { background: var(--text); color: #fff; border-color: var(--text); }
+  .btn.primary:hover { background: #333; }
+
+  .legend {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .li { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text-muted); }
+  .lcheck { font-size: 15px; color: var(--green); line-height: 1; font-weight: 500; }
+  .lempty { width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--border); }
+  .li-note { font-size: 11px; color: var(--text-faint); font-style: italic; }
+
+  .table-wrap {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+  col.c-name { width: 200px; }
+  col.c-ch { width: 88px; }
+
+  thead th {
+    background: var(--green-light);
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    padding: 11px 6px 9px;
+    border-right: 1px solid var(--green-mid);
+    border-bottom: 1px solid var(--green-mid);
+    color: #27500A;
+    line-height: 1.35;
+    vertical-align: bottom;
+  }
+  thead th:first-child {
+    text-align: left;
+    padding-left: 16px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #27500A;
+  }
+  thead th:last-child {
+    background: var(--amber-light);
+    color: var(--amber);
+    border-right: none;
+    border-bottom: 1px solid var(--green-mid);
+  }
+  thead th.th-events {
+    background: var(--green-light);
+    color: #27500A;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--green-mid);
+  }
+  td.cell-events {
+    background: var(--bg);
+    border-right: 1px solid var(--border);
+  }
+  td.cell-events:hover { background: #f0ede6; }
+
+  tr.grp td {
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: var(--text);
+    font-style: italic;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+  tr.grp td:last-child { border-right: none; }
+
+  tr.dr { border-bottom: 1px solid var(--border); transition: background .1s; }
+  tr.dr:last-of-type { border-bottom: none; }
+  tr.dr:hover { background: #fafaf8; }
+
+  td.name {
+    padding: 11px 16px;
+    font-size: 13px;
+    color: var(--text);
+    font-style: normal;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  td.cell {
+    text-align: center;
+    padding: 11px 2px;
+    border-right: 1px solid var(--border);
+    cursor: pointer;
+    transition: background .1s;
+    user-select: none;
+  }
+  td.cell:hover { background: #f0ede6; }
+
+  .chk {
+    font-size: 16px;
+    color: var(--green);
+    line-height: 1;
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    pointer-events: none;
+  }
+  .empty {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    display: block;
+    pointer-events: none;
+    opacity: 0.35;
+  }
+
+  tr.budget-row td {
+    background: var(--amber-light);
+    border-top: 1px solid var(--amber-mid);
+    padding: 7px 4px;
+    border-right: 1px solid #f5d090;
+  }
+  tr.budget-row td.budget-label {
+    padding: 7px 16px;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: var(--amber);
+    border-right: 1px solid var(--border);
+  }
+  tr.budget-row td:last-child { border-right: none; }
+  tr.budget-row input {
+    width: 100%;
+    background: #fff;
+    border: 1px solid var(--amber-mid);
+    border-radius: 4px;
+    padding: 5px 4px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    color: var(--text);
+    text-align: center;
+    outline: none;
+  }
+  tr.budget-row input:focus { box-shadow: 0 0 0 2px rgba(186,117,23,.2); }
+  tr.budget-row input::placeholder { color: var(--amber-mid); opacity: .6; }
+
+  .summary { display: flex; gap: 10px; flex-wrap: wrap; }
+  .sc {
+    flex: 1;
+    min-width: 160px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+  }
+  .sc.blue { background: var(--green-light); border-color: var(--green-mid); }
+  .sc.blue .sc-label { color: #3B6D11; }
+  .sc-label {
+    font-size: 9px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .sc-value { font-size: 22px; font-weight: 500; color: var(--text); font-family: 'DM Mono', monospace; }
+  .sc.gold { background: var(--amber-light); border-color: #f0c870; }
+  .sc.gold .sc-label { color: var(--amber); }
+  .sc.gold .sc-value { color: #633806; }
+  .sc.gold.deficit .sc-value { color: #a32d2d; }
+  .tb-input {
+    font-size: 16px;
+    font-family: 'DM Mono', monospace;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-weight: 500;
+    padding: 0;
+  }
+  .tb-input::placeholder { color: var(--text-faint); font-weight: 300; font-size: 14px; }
+
+  @media print {
+    body { background: #fff; padding: 20px; }
+    .header-right, .summary { display: none; }
+    td.cell { cursor: default; }
+    td.cell:hover { background: transparent; }
+    input { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>24 Seven · Themes 2026</h1>
+    <p>Click any cell to toggle on or off · Enter channel budgets in the bottom row</p>
+  </div>
+  <div class="header-right">
+    <button class="btn" onclick="resetAll()">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5a4.5 4.5 0 1 1 1.1 2.9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M2 9.5V6.5H5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Reset
+    </button>
+    <button class="btn primary" onclick="window.print()">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M9.5 8.5v2a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1H7l2.5 2.5V8.5z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 1.5V4h2.5M4.5 7.5h4M4.5 9.5h4" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Export PDF
+    </button>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="li"><span class="lcheck">✓</span> Active</div>
+  <div class="li"><div class="lempty"></div> Not active</div>
+  <span class="li-note">Click any cell to toggle</span>
+</div>
+
+<div class="table-wrap">
+<table>
+<colgroup>
+  <col class="c-name">
+  <col class="c-ch"><col class="c-ch"><col class="c-ch"><col class="c-ch">
+  <col class="c-ch"><col class="c-ch"><col class="c-ch"><col class="c-ch">
+  <col class="c-ch"><col class="c-ch"><col class="c-ch">
+</colgroup>
+<thead>
+<tr>
+  <th>Marketing Channel</th>
+  <th>Blog / SEO / AEO</th>
+  <th>Web Landing Pages</th>
+  <th>Reports &amp; Guides</th>
+  <th>Social Media</th>
+  <th>Paid Media</th>
+  <th>Trade Bylines</th>
+  <th>Email Campaigns</th>
+  <th>PR</th>
+  <th>Awards &amp; Reputation</th>
+  <th>Cross-brand Promotion</th>
+  <th class="th-events">Events</th>
+</tr>
+</thead>
+<tbody id="tb"></tbody>
+</table>
+</div>
+
+<div class="summary">
+  <div class="sc blue">
+    <div class="sc-label">Total marketing budget</div>
+    <input class="tb-input" id="total-budget" type="text" placeholder="Enter $">
+  </div>
+  <div class="sc gold">
+    <div class="sc-label">Total allocated</div>
+    <div class="sc-value" id="total-alloc">—</div>
+  </div>
+  <div class="sc gold" id="remain-card">
+    <div class="sc-label">Remaining</div>
+    <div class="sc-value" id="remaining">—</div>
+  </div>
+</div>
+
+<script>
+const COLS = 11;
+
+const themes = [
+  'Traditional freelance',
+  'Traditional full-time',
+  'Marketing',
+  'Creative',
+  'Tech',
+  'Fashion',
+  'Beauty',
+  'Retail',
+  '24 Seven Agencies',
+  'AI/Tech in the Workforce',
+  'Career Advice',
+  'Workplace Culture/Leadership',
+];
+
+const state = themes.map(() => new Array(COLS).fill(0));
+const budgets = new Array(COLS).fill('');
+
+function pm(s) { if (!s) return 0; return parseFloat(s.replace(/[$,\s]/g, '')) || 0; }
+function fm(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+
+function buildTable() {
+  const tb = document.getElementById('tb');
+  tb.innerHTML = '';
+
+  const gr = document.createElement('tr');
+  gr.className = 'grp';
+  let grHtml = `<td>THEMES</td>`;
+  for (let c = 0; c < COLS; c++) grHtml += `<td></td>`;
+  gr.innerHTML = grHtml;
+  tb.appendChild(gr);
+
+  state.forEach((row, ti) => {
+    const tr = document.createElement('tr');
+    tr.className = 'dr';
+
+    const nd = document.createElement('td');
+    nd.className = 'name';
+    nd.textContent = themes[ti];
+    tr.appendChild(nd);
+
+    row.forEach((val, ci) => {
+      const td = document.createElement('td');
+      td.className = ci === COLS - 1 ? 'cell cell-events' : 'cell';
+      td.innerHTML = val ? '<span class="chk">✓</span>' : '<div class="empty"></div>';
+      td.addEventListener('click', () => {
+        state[ti][ci] = state[ti][ci] ? 0 : 1;
+        td.innerHTML = state[ti][ci] ? '<span class="chk">✓</span>' : '<div class="empty"></div>';
+      });
+      tr.appendChild(td);
+    });
+
+    tb.appendChild(tr);
+  });
+
+  // Budget row
+  const br = document.createElement('tr');
+  br.className = 'budget-row';
+  const bl = document.createElement('td');
+  bl.className = 'budget-label';
+  bl.textContent = 'Channel Budget';
+  br.appendChild(bl);
+
+  for (let c = 0; c < COLS; c++) {
+    const td = document.createElement('td');
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.placeholder = '$—';
+    inp.dataset.col = c;
+    inp.value = budgets[c];
+    inp.addEventListener('input', e => {
+      budgets[e.target.dataset.col] = e.target.value;
+      updateBudget();
+    });
+    td.appendChild(inp);
+    br.appendChild(td);
+  }
+
+  tb.appendChild(br);
+}
+
+function updateBudget() {
+  let total = 0;
+  for (let c = 0; c < COLS; c++) total += pm(budgets[c]);
+  const ct = document.getElementById('col-total');
+  if (ct) ct.textContent = total > 0 ? fm(total) : '—';
+  document.getElementById('total-alloc').textContent = total > 0 ? fm(total) : '—';
+  const tb2 = pm(document.getElementById('total-budget').value);
+  const rem = tb2 > 0 && total > 0 ? tb2 - total : null;
+  const remEl = document.getElementById('remaining');
+  const remCard = document.getElementById('remain-card');
+  if (rem !== null) {
+    remEl.textContent = fm(rem);
+    remCard.classList.toggle('deficit', rem < 0);
+  } else {
+    remEl.textContent = '—';
+    remCard.classList.remove('deficit');
+  }
+}
+
+function resetAll() {
+  if (!confirm('Clear all selections?')) return;
+  state.forEach(row => row.fill(0));
+  budgets.fill('');
+  buildTable();
+  document.getElementById('total-budget').value = '';
+  updateBudget();
+}
+
+document.getElementById('total-budget').addEventListener('input', updateBudget);
+buildTable();
+</script>
+</body>
+</html>
